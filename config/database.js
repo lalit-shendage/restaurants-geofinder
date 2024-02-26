@@ -7,10 +7,7 @@ const user=process.env.mongoURI
 
 const connectDb= async () =>{
     try{
-        await mongoose.connect(`mongodb+srv://${user}@cluster0.dwnwv8t.mongodb.net/Geo-Resto`, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        })
+        await mongoose.connect(`mongodb+srv://${user}@cluster0.dwnwv8t.mongodb.net/Geo-Resto`)
         console.log('DB Connected')
     }catch(err){
         console.log(err)

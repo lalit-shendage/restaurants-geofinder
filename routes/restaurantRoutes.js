@@ -1,17 +1,18 @@
 import express from 'express';
+import verifyToken from '../middleware/validationMiddleware.js';
 import restarantController from '../controllers/resturantController.js'
 
 const router = express();
 
-router.post('/create', restarantController.create)
+router.post('/create',verifyToken, restarantController.create)
 
-router.post('/findByRadious', restarantController.findByRadious)
+router.post('/findByRadious',verifyToken, restarantController.findByRadious)
 
-router.post('/findByMaxMinDistance', restarantController.findByMaxMinDistance)
+router.post('/findByMaxMinDistance',verifyToken, restarantController.findByMaxMinDistance)
 
-router.put('/:id', restarantController.editRestaurant)
+router.put('/:id',verifyToken, restarantController.editRestaurant)
 
-router.delete('/:id', restarantController.deleteRestaurant)
+router.delete('/:id',verifyToken, restarantController.deleteRestaurant)
 
 export default router;
 
